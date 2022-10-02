@@ -89,6 +89,7 @@
             this.enterButton.Text = "Enter";
             this.enterButton.UseVisualStyleBackColor = true;
             this.enterButton.Visible = false;
+            this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
             // 
             // Form1
             // 
