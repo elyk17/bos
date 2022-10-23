@@ -9,17 +9,18 @@ namespace BookOfShadows
         public Form1()
         {
             InitializeComponent();
+            
         }
 
        
         private SqlConnection con;
-        private SqlCommand password;
+    
         private void button1_Click(object sender, EventArgs e)
         {
             passwordLabel.Visible = true;
             passwordBox.Visible = true;
             openButton.Visible = false;
-            enterButton.Visible = true;    
+            enterButton.Visible = true;
 
         }
 
@@ -38,38 +39,82 @@ namespace BookOfShadows
         {
 
         }
-
-        private void enterButton_Click(object sender, EventArgs e)
+        private void CreateConnection()
         {
+            string ConnStr = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=BOS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            con = new SqlConnection(ConnStr);
+        }
+        public void getReader()
+        {
+            CreateConnection();
+            string cmd = "select * from _admin";
+            SqlCommand command = new SqlCommand(cmd, con);
             try
             {
-                con = new SqlConnection();
-                con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\kylem\OneDrive\Documents\bos\BookOfShadows\bookofshadows.mdf;Integrated Security=True";
                 con.Open();
-
-                password = new SqlCommand("Select password from admin", con);
-                SqlDataReader da = password.ExecuteReader();
-                while(da.Read())
+                command.ExecuteScalar();
+                if(string.IsNullOrEmpty(Convert.ToString(command.ExecuteScalar())))
                 {
-                    if (da.GetValue(0).ToString() == null)
-                    {
-                        setpassword password = new setpassword();
-                        password.ShowDialog();
-                    }
-                    else if (passwordBox.Text == da.GetValue(0).ToString())
-                    {
-
-                    }
+                    MessageBox.Show("No Password found");
+                    this.Close();
+                    setpasswordOpen password = new setpasswordOpen();
+                    password.ShowDialog();
                 }
-               
-    
+                
+                else if(passwordBox.Text == command.ExecuteScalar().ToString())
+                {
+                    MessageBox.Show("Password Match");
+                    insideBook beginning = new insideBook();
+                    beginning.ShowDialog();
+                    this.Close();
+                }
+
+
+            }
+            catch (SqlException se)
+            {
+                throw;
             }
             catch (Exception ex)
             {
-                con = null;
-                
+                throw;
+            }
+            finally
+            {
+                con.Close();
             }
 
+
+            //CreateConnection();
+            //string cmd = "select * from _admin";
+            //SqlDataAdapter sda = new SqlDataAdapter(cmd, con);
+            //DataTable dt = new DataTable();
+
+            //try
+            //{
+            //    con.Open();
+            //    sda.Fill(dt);
+
+
+            //}
+            //catch (SqlException se)
+            //{
+            //    throw;
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw;
+            //}
+            //finally
+            //{
+            //    con.Close();
+            //}
+            //return dt;
+        }
+        private void enterButton_Click(object sender, EventArgs e)
+        {
+            getReader();
+           
         }
     }
 }

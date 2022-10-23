@@ -1,4 +1,1 @@
-﻿create table admin
-(
-	password varchar(255)
-)
+﻿DELETE FROM _admin WHERE password = 'admin';
