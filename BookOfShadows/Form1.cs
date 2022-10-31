@@ -55,8 +55,7 @@ namespace BookOfShadows
                 command.ExecuteScalar();
                 if(string.IsNullOrEmpty(Convert.ToString(command.ExecuteScalar())))
                 {
-                    MessageBox.Show("No Password found");
-                    this.Close();
+                    MessageBox.Show("No Password Found");
                     setpasswordOpen password = new setpasswordOpen();
                     password.ShowDialog();
                 }
@@ -67,6 +66,10 @@ namespace BookOfShadows
                     insideBook beginning = new insideBook();
                     beginning.ShowDialog();
                     this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Password Does Not Match");
                 }
 
 

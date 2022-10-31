@@ -23,7 +23,6 @@ namespace BookOfShadows
             string cmd = "INSERT INTO [dbo].[_admin] (password) Values (@password)";
             SqlCommand command = new SqlCommand(cmd, con);
             command.Parameters.AddWithValue("@password", ""+passwordTextBox.Text+"");
-            MessageBox.Show(passwordTextBox.Text);
             try
             {
                 con.Open();
@@ -31,8 +30,7 @@ namespace BookOfShadows
                 if (result < 0)
                     MessageBox.Show("Error inserting data into Database!");
                 else {
-                    Form1 beginning = new Form1();
-                    beginning.ShowDialog();
+                    MessageBox.Show("Password Saved");
                     this.Close();
                 }
                     

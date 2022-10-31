@@ -46,6 +46,7 @@ C:\Users\kylem\OneDrive\Documents\bos\BookOfShadows\obj\Debug\net6.0-windows\Boo
 C:\Users\kylem\OneDrive\Documents\bos\BookOfShadows\obj\Debug\net6.0-windows\BookOfShadows.insideBook.resources
 C:\Users\kylem\OneDrive\Documents\bos\BookOfShadows\obj\Debug\net6.0-windows\BookOfShadows.Form1.resources
 C:\Users\kylem\OneDrive\Documents\bos\BookOfShadows\obj\Debug\net6.0-windows\BookOfShadows.Properties.Resources.resources
+C:\Users\kylem\OneDrive\Documents\bos\BookOfShadows\obj\Debug\net6.0-windows\BookOfShadows.reset_password.resources
 C:\Users\kylem\OneDrive\Documents\bos\BookOfShadows\obj\Debug\net6.0-windows\BookOfShadows.setpasswordOpen.resources
 C:\Users\kylem\OneDrive\Documents\bos\BookOfShadows\obj\Debug\net6.0-windows\BookOfShadows.csproj.GenerateResource.cache
 C:\Users\kylem\OneDrive\Documents\bos\BookOfShadows\obj\Debug\net6.0-windows\BookOfShadows.GeneratedMSBuildEditorConfig.editorconfig

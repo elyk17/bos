@@ -1,1 +1,1 @@
-﻿DELETE FROM _admin WHERE password = 'admin';
+﻿Select * FROM _admin ;

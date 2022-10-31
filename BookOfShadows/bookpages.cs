@@ -26,5 +26,17 @@ namespace BookOfShadows
         {
 
         }
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            reset_password reset = new reset_password();
+            reset.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            inputTitle.Clear();
+            textBody.Clear();
+
+        }
     }
 }
