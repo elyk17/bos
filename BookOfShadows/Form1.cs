@@ -66,6 +66,7 @@ namespace BookOfShadows
                     insideBook beginning = new insideBook();
                     beginning.ShowDialog();
                     this.Close();
+
                 }
                 else
                 {
