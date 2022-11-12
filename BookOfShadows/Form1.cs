@@ -65,7 +65,8 @@ namespace BookOfShadows
                     MessageBox.Show("Password Match");
                     insideBook beginning = new insideBook();
                     beginning.ShowDialog();
-                    this.Close();
+                    this.Hide();
+                    
 
                 }
                 else

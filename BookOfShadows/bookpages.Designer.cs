@@ -90,6 +90,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(531, 511);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // resetButton
             // 

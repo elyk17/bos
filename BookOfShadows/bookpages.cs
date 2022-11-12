@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlClient;
+using System.Data;
 
 namespace BookOfShadows
 {
@@ -15,20 +16,30 @@ namespace BookOfShadows
         private void bookpages_Load(object sender, EventArgs e)
         {
             Form1 book = new Form1();
-            book.Close();
+            book.Close(); 
             CreateConnection();
-            string cmd = "Select id,title from [dbo].[page] ";
+
+            string cmd = "Select title from [dbo].[page] ORDER BY title ASC";
             SqlCommand command = new SqlCommand(cmd, con);
             try
             {
                 con.Open(); 
                 SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+                if(reader.HasRows)
                 {
-                    string results = reader.GetValue(1).ToString();
-                    richTextBox1.Text = results;
+                    int count = reader.FieldCount;
+
+                    while (reader.Read())
+                    {
+                        for (int i = 0; i < count; i++)
+                        {
+                            richTextBox1.AppendText(reader[i].ToString() +'\n');
+                        }
+
+                    }
+                    reader.Close();
                 }
-                con.Close();
+               
               
 
 
@@ -45,10 +56,6 @@ namespace BookOfShadows
             {
                 con.Close();
             }
-        }
-        private void Link_Clicked(object sender, System.Windows.Forms.LinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(richTextBox1.Text);
         }
 
         private void title_Click(object sender, EventArgs e)
@@ -111,12 +118,8 @@ namespace BookOfShadows
         private void saveButton_Click(object sender, EventArgs e)
         {
             getReader();
-        }
-
-        private void searchButton_Click(object sender, EventArgs e)
-        {
             CreateConnection();
-            string cmd = "SELECT title, book_page FROM [dbo].[page] WHERE title = '" + titleTextBox + "'";
+            string cmd = "Select * from [dbo].[page] ORDER BY title ASC";
             SqlCommand command = new SqlCommand(cmd, con);
             try
             {
@@ -124,10 +127,49 @@ namespace BookOfShadows
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    string results = reader.GetValue(1).ToString();
+                    string results = reader["title"].ToString();
+                    richTextBox1.Text = results;
+                }
+                con.Close();
+
+
+
+            }
+            catch (SqlException se)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            CreateConnection();
+            string cmd = "SELECT * FROM [dbo].[page] WHERE title = @new_title";
+            SqlCommand command = new SqlCommand(cmd, con);
+            command.Parameters.AddWithValue("@new_title", titleTextBox.Text);
+            try
+            {
+                con.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string results = reader["title"].ToString();
                     inputTitle.Text = results;
-                    string page = reader.GetValue(2).ToString();
+                    string page = reader["book_page"].ToString();
                     textBody.Text = page;
+                    if(results == null)
+                    {
+                        MessageBox.Show("No Page Found");
+                    }
                 }
                 con.Close();
 
@@ -147,6 +189,11 @@ namespace BookOfShadows
                 con.Close();
             }
            
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

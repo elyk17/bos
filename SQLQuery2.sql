@@ -1,1 +1,1 @@
-﻿Select * FROM _admin ;
+﻿SELECT title, book_page FROM [dbo].[page] 
