@@ -42,6 +42,7 @@
             this.openButton.Image = ((System.Drawing.Image)(resources.GetObject("openButton.Image")));
             this.openButton.Location = new System.Drawing.Point(441, 435);
             this.openButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.openButton.MaximumSize = new System.Drawing.Size(667, 938);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(165, 88);
             this.openButton.TabIndex = 0;
@@ -56,6 +57,7 @@
             this.passwordLabel.Image = ((System.Drawing.Image)(resources.GetObject("passwordLabel.Image")));
             this.passwordLabel.Location = new System.Drawing.Point(170, 446);
             this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.passwordLabel.MaximumSize = new System.Drawing.Size(667, 938);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(266, 62);
             this.passwordLabel.TabIndex = 1;
@@ -70,6 +72,7 @@
             this.passwordBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.passwordBox.Location = new System.Drawing.Point(170, 570);
             this.passwordBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.passwordBox.MaximumSize = new System.Drawing.Size(667, 938);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.PasswordChar = '*';
             this.passwordBox.Size = new System.Drawing.Size(250, 31);
@@ -83,6 +86,7 @@
             this.enterButton.ForeColor = System.Drawing.SystemColors.Control;
             this.enterButton.Image = ((System.Drawing.Image)(resources.GetObject("enterButton.Image")));
             this.enterButton.Location = new System.Drawing.Point(204, 655);
+            this.enterButton.MaximumSize = new System.Drawing.Size(667, 938);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(182, 79);
             this.enterButton.TabIndex = 3;
@@ -103,6 +107,7 @@
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.openButton);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(667, 938);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
