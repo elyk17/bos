@@ -7,7 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>c0b08d7d-76b1-4be1-a556-640fbb7f4139</UserSecretsId>
-    <BaseOutputPath>C:\Users\kylem\OneDrive\Desktop</BaseOutputPath>
+    <BaseOutputPath>..\..\..\Desktop</BaseOutputPath>
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>spellbook</Description>
@@ -18,15 +18,25 @@
 	  <SignAssembly>False</SignAssembly>
 	  <Title>BookOfShadowsDeploy</Title>
 	  <NeutralLanguage>en-US</NeutralLanguage>
-	  <IsPublishable>False</IsPublishable>
+	  <IsPublishable>True</IsPublishable>
 	  <IncludeSymbols>True</IncludeSymbols>
+	  <ApplicationIcon>brownleatherbook.ico</ApplicationIcon>
+	  <PackageIcon>book.jpg</PackageIcon>
+	  <PackageTags>V1.0.0</PackageTags>
+	  <PackageOutputPath>..\..\..\Desktop</PackageOutputPath>
+	  <SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="book.ico" />
+    <Content Include="brownleatherbook.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\..\Desktop\Artistic\book.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
